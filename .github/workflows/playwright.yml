@@ -6,7 +6,8 @@ on:
       - main
   pull_request:
 
-permissions: write
+permissions:
+  contents: write
 
 jobs:
   tests_e2e:
@@ -14,10 +15,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-      - uses: actions/setup-node@v4
+        uses: actions/setup-node@v4
         with:
           node-version: 22
 
@@ -34,8 +35,8 @@ jobs:
         uses: actions/checkout@v4
         continue-on-error: true
         with:
-        ref: gh-pages
-        path: gh-pages
+          ref: gh-pages
+          path: gh-pages
 
       - name: Copy Allure history
         run: |
